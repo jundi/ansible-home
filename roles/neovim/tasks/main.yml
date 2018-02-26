@@ -1,0 +1,27 @@
+- name: Install epel-release repository
+  become: true
+  yum:
+          name: epel-release
+          state: latest
+- name: Install Neovim repository
+  become: true
+  get_url:
+          url: https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
+          dest: /etc/yum.repos.d/dperson-neovim-epel-7.repo
+- name: Install Neovim
+  become: true
+  yum:
+          name: neovim
+          state: latest
+
+- name: Create directory for custom binaries
+  file:
+          path: ~/.opt/bin/
+          state: directory
+
+- name: Symlink vim to neovim
+  file:
+          path: ~/.opt/bin/vim
+          src: /usr/bin/nvim
+          state: link
+          force: yes

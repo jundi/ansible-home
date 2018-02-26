@@ -1,0 +1,9 @@
+- name: Get terminfo file
+  get_url:
+          url: https://raw.githubusercontent.com/thestinger/termite/master/termite.terminfo
+          dest: /tmp/termite.terminfo
+
+- name: Install terminfo
+  command: tic /tmp/termite.terminfo
+  args:
+          creates: ~/.terminfo/x/xterm-termite
