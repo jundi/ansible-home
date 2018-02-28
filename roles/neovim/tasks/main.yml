@@ -3,11 +3,13 @@
   yum:
           name: epel-release
           state: latest
+
 - name: Install Neovim repository
   become: true
   get_url:
           url: https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
           dest: /etc/yum.repos.d/dperson-neovim-epel-7.repo
+
 - name: Install Neovim
   become: true
   yum:
@@ -25,3 +27,35 @@
           src: /usr/bin/nvim
           state: link
           force: yes
+
+- name: Symlink neovim configuration directory to ~/.vim
+  file:
+          path: ~/.config/nvim
+          src: ~/.vim
+          state: link
+          force: yes
+
+- name: Clone vimfiles repo
+  git:
+          repo: https://github.com/jundi/vimfiles.git
+          dest: ~/.vim
+
+- name: Install Vundle plugin manager
+  git:
+          repo: https://github.com/VundleVim/Vundle.vim.git
+          dest: ~/.vim/bundle/Vundle.vim
+
+- name: Install plugins
+  command: nvim +PluginInstall +qall
+
+- name: Add vimpager executables
+  file:
+          path: ~/.opt/bin/vimpager
+          src: ~/.vim/bundle/vimpager/vimpager
+          state: link
+          force: yes
+
+- name: Create directory for vim backups
+  file:
+          path: ~/.vimbackup
+          state: directory
