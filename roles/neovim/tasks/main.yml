@@ -74,4 +74,9 @@
 
 - name: Install python completion and linting
   yum:
-    name: pylint python34-jedi python-flake8
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - pylint
+      - python34-jedi
+      - python-flake8
