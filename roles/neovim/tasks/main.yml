@@ -59,6 +59,7 @@
 - name: Install plugins
   command: nvim +PluginInstall +qall
 
+
 - name: Add vimpager executables
   file:
           path: ~/.opt/bin/vimpager
@@ -70,3 +71,7 @@
   file:
           path: ~/.vimbackup
           state: directory
+
+- name: Install python completion and linting
+  yum:
+    name: pylint python34-jedi python-flake8
