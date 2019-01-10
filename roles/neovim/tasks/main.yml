@@ -80,3 +80,4 @@
       - pylint
       - python34-jedi
       - python-flake8
+      - yamllint
