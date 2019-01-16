@@ -1,3 +1,4 @@
+---
 - name: Install epel-release repository
   become: true
   yum:
@@ -26,7 +27,7 @@
           path: ~/.opt/bin/vim
           src: /usr/bin/nvim
           state: link
-          force: yes
+          force: true
 
 - name: Install git
   become: true
@@ -49,7 +50,7 @@
           path: ~/.config/nvim
           src: ~/.vim
           state: link
-          force: yes
+          force: true
 
 - name: Install Vundle plugin manager
   git:
@@ -65,7 +66,7 @@
           path: ~/.opt/bin/vimpager
           src: ~/.vim/bundle/vimpager/vimpager
           state: link
-          force: yes
+          force: true
 
 - name: Create directory for vim backups
   file:
@@ -73,6 +74,7 @@
           state: directory
 
 - name: Install python completion and linting
+  become: true
   yum:
     name: "{{ packages }}"
   vars:
