@@ -2,60 +2,60 @@
 - name: Install epel-release repository
   become: true
   yum:
-          name: epel-release
-          state: latest
+    name: epel-release
+    state: latest
 
 - name: Install Neovim repository
   become: true
   get_url:
-          url: https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
-          dest: /etc/yum.repos.d/dperson-neovim-epel-7.repo
+    url: https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
+    dest: /etc/yum.repos.d/dperson-neovim-epel-7.repo
 
 - name: Install Neovim
   become: true
   yum:
-          name: neovim
-          state: latest
+    name: neovim
+    state: latest
 
 - name: Create directory for custom binaries
   file:
-          path: ~/.opt/bin/
-          state: directory
+    path: ~/.opt/bin/
+    state: directory
 
 - name: Symlink vim to neovim
   file:
-          path: ~/.opt/bin/vim
-          src: /usr/bin/nvim
-          state: link
-          force: true
+    path: ~/.opt/bin/vim
+    src: /usr/bin/nvim
+    state: link
+    force: true
 
 - name: Install git
   become: true
   yum:
-          name: git
-          state: latest
+    name: git
+    state: latest
 
 - name: Clone vimfiles repo
   git:
-          repo: https://github.com/jundi/vimfiles.git
-          dest: ~/.vim
+    repo: https://github.com/jundi/vimfiles.git
+    dest: ~/.vim
 
 - name: Create .config directory
   file:
-          path: ~/.config
-          state: directory
+    path: ~/.config
+    state: directory
 
 - name: Symlink neovim configuration directory to ~/.vim
   file:
-          path: ~/.config/nvim
-          src: ~/.vim
-          state: link
-          force: true
+    path: ~/.config/nvim
+    src: ~/.vim
+    state: link
+    force: true
 
 - name: Install Vundle plugin manager
   git:
-          repo: https://github.com/VundleVim/Vundle.vim.git
-          dest: ~/.vim/bundle/Vundle.vim
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
 
 - name: Install plugins
   command: nvim +PluginInstall +qall
@@ -63,15 +63,15 @@
 
 - name: Add vimpager executables
   file:
-          path: ~/.opt/bin/vimpager
-          src: ~/.vim/bundle/vimpager/vimpager
-          state: link
-          force: true
+    path: ~/.opt/bin/vimpager
+    src: ~/.vim/bundle/vimpager/vimpager
+    state: link
+    force: true
 
 - name: Create directory for vim backups
   file:
-          path: ~/.vimbackup
-          state: directory
+    path: ~/.vimbackup
+    state: directory
 
 - name: Install python completion and linting
   become: true

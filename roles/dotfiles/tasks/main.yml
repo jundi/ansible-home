@@ -1,23 +1,24 @@
+---
 - name: Install git
   become: true
   yum:
-          name: git
-          state: latest
+    name: git
+    state: latest
 
 - name: Clone dotfiles
   git:
-          repo: https://github.com/jundi/dotfiles.git
-          dest: ~/.config/dotfiles
+    repo: https://github.com/jundi/dotfiles.git
+    dest: ~/.config/dotfiles
 
 - name: Include dotfiles
   template:
     src: "{{item.src}}"
     dest: "{{item.dest}}"
-    force: no
+    force: false
   with_items:
-          - { src: 'templates/gitconfig', dest: '~/.gitconfig' }
-          - { src: 'templates/bash_profile', dest: '~/.bash_profile' }
-          - { src: 'templates/bashrc', dest: '~/.bashrc' }
-          - { src: 'templates/Xmodmap', dest: '~/.Xmodmap' }
-          - { src: 'templates/xprofile', dest: '~/.xprofile' }
-          - { src: 'templates/xsession', dest: '~/.xsession' }
+    - {src: 'templates/gitconfig', dest: '~/.gitconfig'}
+    - {src: 'templates/bash_profile', dest: '~/.bash_profile'}
+    - {src: 'templates/bashrc', dest: '~/.bashrc'}
+    - {src: 'templates/Xmodmap', dest: '~/.Xmodmap'}
+    - {src: 'templates/xprofile', dest: '~/.xprofile'}
+    - {src: 'templates/xsession', dest: '~/.xsession'}
