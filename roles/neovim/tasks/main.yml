@@ -83,3 +83,4 @@
       - python34-jedi
       - python-flake8
       - yamllint
+      - ansible-lint
