@@ -22,3 +22,9 @@
     - {src: 'templates/Xmodmap', dest: '~/.Xmodmap'}
     - {src: 'templates/xprofile', dest: '~/.xprofile'}
     - {src: 'templates/xsession', dest: '~/.xsession'}
+
+- name: Symlinks to dotfiles
+  file:
+    src: ~/.config/dotfiles/ansible.cfg
+    dest: ~/.ansible.cfg
+    state: link
