@@ -70,7 +70,7 @@
     path: ~/.vimbackup
     state: directory
 
-- name: Install python completion and linting
+- name: Install completion and linting software
   become: true
   yum:
     name: "{{ packages }}"
@@ -81,3 +81,7 @@
       - python-flake8
       - yamllint
       - ansible-lint
+
+- name: Install  more linting software
+  pip:
+    name: rstcheck
