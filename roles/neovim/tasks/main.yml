@@ -10,8 +10,7 @@
   yum:
     name:
       - neovim
-      - python2-neovim
-      - python34-neovim
+      - python36-neovim
     state: latest
 
 - name: Create directory for custom binaries
@@ -77,7 +76,7 @@
   vars:
     packages:
       - pylint
-      - python34-jedi
+      - python36-jedi
       - python-flake8
       - yamllint
       - ansible-lint
