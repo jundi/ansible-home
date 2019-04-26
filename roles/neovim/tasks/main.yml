@@ -83,4 +83,7 @@
 
 - name: Install  more linting software
   pip:
-    name: rstcheck
+    name:
+      - rstcheck
+      - pylint-venv
+    extra_args: --user

@@ -25,6 +25,9 @@
 
 - name: Symlinks to dotfiles
   file:
-    src: ~/.config/dotfiles/ansible.cfg
-    dest: ~/.ansible.cfg
+    src: "{{item.src}}"
+    dest: "{{item.dest}}"
     state: link
+  with_items:
+    - {src: ~/.config/dotfiles/ansible.cfg, dest: ~/.ansible.cfg}
+    - {src: ~/.config/dotfiles/pylintrc, dest: ~/.pylintrc}
