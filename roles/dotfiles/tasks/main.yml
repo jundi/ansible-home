@@ -19,7 +19,6 @@
     - {src: 'templates/gitconfig', dest: '~/.gitconfig'}
     - {src: 'templates/bash_profile', dest: '~/.bash_profile'}
     - {src: 'templates/bashrc', dest: '~/.bashrc'}
-    - {src: 'templates/Xmodmap', dest: '~/.Xmodmap'}
     - {src: 'templates/xprofile', dest: '~/.xprofile'}
     - {src: 'templates/xsession', dest: '~/.xsession'}
 
@@ -31,3 +30,4 @@
   with_items:
     - {src: ~/.config/dotfiles/ansible.cfg, dest: ~/.ansible.cfg}
     - {src: ~/.config/dotfiles/pylintrc, dest: ~/.pylintrc}
+    - {src: ~/.config/dotfiles/Xmodmap, dest: ~/.Xmodmap}
