@@ -31,3 +31,8 @@
     - {src: ~/.config/dotfiles/ansible.cfg, dest: ~/.ansible.cfg}
     - {src: ~/.config/dotfiles/pylintrc, dest: ~/.pylintrc}
     - {src: ~/.config/dotfiles/Xmodmap, dest: ~/.Xmodmap}
+
+- name: Download LS_COLORS
+  get_url:
+    url: https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS
+    dest: ~/.dircolors
