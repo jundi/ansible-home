@@ -5,3 +5,4 @@
     - dotfiles
     - X11forwarding
     - terminfo-termite
+    - bash-completion
