@@ -54,8 +54,7 @@
     dest: ~/.vim/bundle/Vundle.vim
 
 - name: Install plugins
-  command: nvim +PluginInstall +qall
-
+  command: nvim +PluginUpdate +UpdateRemotePlugins +qall
 
 - name: Add vimpager executables
   file:
