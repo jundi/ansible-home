@@ -20,7 +20,6 @@
     - {src: 'templates/bash_profile', dest: '~/.bash_profile'}
     - {src: 'templates/bashrc', dest: '~/.bashrc'}
     - {src: 'templates/xprofile', dest: '~/.xprofile'}
-    - {src: 'templates/xsession', dest: '~/.xsession'}
 
 - name: Symlinks to dotfiles
   file:
