@@ -75,6 +75,7 @@
   vars:
     packages:
       - pylint
+      - python36-pylint
       - python36-jedi
       - python-flake8
       - yamllint
