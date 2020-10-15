@@ -88,3 +88,4 @@
       - pylint-venv
       - flake8-docstrings
     extra_args: --user
+    executable: pip3
