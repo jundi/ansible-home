@@ -69,23 +69,15 @@
     state: directory
 
 - name: Install completion and linting software
-  become: true
-  yum:
-    name: "{{ packages }}"
-  vars:
-    packages:
-      - pylint
-      - python36-pylint
-      - python36-jedi
-      - python-flake8
-      - yamllint
-      - ansible-lint
-
-- name: Install  more linting software
   pip:
     name:
+      - ansible-lint
+      - pylint
+      - jedi
       - rstcheck
       - pylint-venv
+      - flake8
       - flake8-docstrings
+      - yamllint
     extra_args: --user
     executable: pip3
