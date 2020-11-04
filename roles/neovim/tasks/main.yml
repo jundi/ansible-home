@@ -11,14 +11,34 @@
     state: link
     force: true
 
-- name: Clone vimfiles repo
-  git:
-    repo: https://github.com/jundi/vimfiles.git
-    dest: ~/.vim
-
 - name: Create .config directory
   file:
     path: ~/.config
+    state: directory
+
+- name: Clone vimfiles repo
+  git:
+    repo: https://github.com/jundi/vimfiles.git
+    dest: ~/.config/nvim
+
+- name: Install plugin manager
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: ~/.config/nvim/autoload/plug.vim
+
+- name: Install plugins
+  command: nvim +PlugUpdate +UpdateRemotePlugins +qall
+
+- name: Add vimpager executables
+  file:
+    path: ~/.opt/bin/vimpager
+    src: ~/.vim/plugged/vimpager/vimpager
+    state: link
+    force: true
+
+- name: Create directory for vim backups
+  file:
+    path: ~/.vimbackup
     state: directory
 
 - name: Symlink neovim configuration directory to ~/.vim
@@ -27,26 +47,6 @@
     path: ~/.vim
     state: link
     force: true
-
-- name: Install Vundle plugin manager
-  git:
-    repo: https://github.com/VundleVim/Vundle.vim.git
-    dest: ~/.vim/bundle/Vundle.vim
-
-- name: Install plugins
-  command: nvim +PluginUpdate +UpdateRemotePlugins +qall
-
-- name: Add vimpager executables
-  file:
-    path: ~/.opt/bin/vimpager
-    src: ~/.vim/bundle/vimpager/vimpager
-    state: link
-    force: true
-
-- name: Create directory for vim backups
-  file:
-    path: ~/.vimbackup
-    state: directory
 
 - name: Install completion and linting software
   pip:
