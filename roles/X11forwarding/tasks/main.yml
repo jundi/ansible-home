@@ -1,6 +1,0 @@
----
-- name: Install xorg-x11-xauth
-  become: true
-  yum:
-    name: xorg-x11-xauth
-    state: latest

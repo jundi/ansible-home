@@ -1,18 +1,4 @@
 ---
-- name: Install epel-release repository
-  become: true
-  yum:
-    name: epel-release
-    state: latest
-
-- name: Install Neovim
-  become: true
-  yum:
-    name:
-      - neovim
-      - python36-neovim
-    state: latest
-
 - name: Create directory for custom binaries
   file:
     path: ~/.opt/bin/
@@ -24,12 +10,6 @@
     src: /usr/bin/nvim
     state: link
     force: true
-
-- name: Install git
-  become: true
-  yum:
-    name: git
-    state: latest
 
 - name: Clone vimfiles repo
   git:
@@ -43,8 +23,8 @@
 
 - name: Symlink neovim configuration directory to ~/.vim
   file:
-    path: ~/.config/nvim
-    src: ~/.vim
+    src: ~/.config/nvim
+    path: ~/.vim
     state: link
     force: true
 

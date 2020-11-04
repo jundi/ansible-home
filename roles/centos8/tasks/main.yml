@@ -1,0 +1,19 @@
+---
+- name: Install git
+  become: true
+  dnf:
+    name: git
+    state: latest
+
+- name: Install epel-release repository
+  become: true
+  dnf:
+    name: epel-release
+    state: latest
+
+- name: Install Neovim
+  become: true
+  dnf:
+    name:
+      - neovim
+    state: latest

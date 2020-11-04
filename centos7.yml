@@ -1,0 +1,6 @@
+---
+- hosts: all
+  roles:
+    - centos7
+
+- import_playbook: site.yml

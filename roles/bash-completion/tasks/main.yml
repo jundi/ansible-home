@@ -1,5 +1,0 @@
----
-- name: Install bash completion
-  become: true
-  yum:
-    name: bash-completion-extras

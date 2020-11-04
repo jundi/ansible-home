@@ -3,6 +3,3 @@
   roles:
     - neovim
     - dotfiles
-    - X11forwarding
-    - terminfo-termite
-    - bash-completion
