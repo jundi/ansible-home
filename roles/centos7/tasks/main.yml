@@ -1,4 +1,10 @@
 ---
+- name: Install epel-release repository
+  become: true
+  yum:
+    name: epel-release
+    state: latest
+
 - name: Install bash completion
   become: true
   yum:
@@ -14,12 +20,6 @@
   become: true
   yum:
     name: xorg-x11-xauth
-    state: latest
-
-- name: Install epel-release repository
-  become: true
-  yum:
-    name: epel-release
     state: latest
 
 - name: Install Neovim
