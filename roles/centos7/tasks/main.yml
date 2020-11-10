@@ -16,16 +16,23 @@
     name: git
     state: latest
 
-- name: Install xorg-x11-xauth
-  become: true
-  yum:
-    name: xorg-x11-xauth
-    state: latest
-
 - name: Install Neovim
   become: true
   yum:
     name:
       - neovim
       - python36-neovim
+    state: latest
+
+- name: Install Python2 setuptools (required for pip3)
+  become: true
+  yum:
+    name: python-setuptools
+    state: latest
+
+- name: Enable cliboard syncronization over SSH
+  yum:
+    name:
+      - xorg-x11-xauth
+      - xsel
     state: latest

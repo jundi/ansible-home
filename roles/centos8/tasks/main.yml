@@ -17,3 +17,10 @@
     name:
       - neovim
     state: latest
+
+- name: Enable cliboard syncronization over SSH
+  yum:
+    name:
+      - xorg-x11-xauth
+      - xsel
+    state: latest
