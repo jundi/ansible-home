@@ -30,7 +30,7 @@
     name: python-setuptools
     state: latest
 
-- name: Enable cliboard syncronization over SSH
+- name: Enable clipboard syncronization over SSH
   yum:
     name:
       - xorg-x11-xauth
