@@ -64,5 +64,6 @@
       - flake8
       - flake8-docstrings
       - yamllint
+      - yapf
     extra_args: --user
     executable: pip3
