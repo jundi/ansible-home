@@ -3,3 +3,5 @@
   roles:
     - neovim
     - dotfiles
+    - scripts
+    - terminfo-termite
