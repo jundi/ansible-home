@@ -1,0 +1,6 @@
+---
+- name: Clone scripts repo
+  git:
+    repo: https://github.com/jundi/scripts.git
+    update: false
+    dest: ~/.opt/scripts
