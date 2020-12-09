@@ -24,3 +24,16 @@
       - xorg-x11-xauth
       - xsel
     state: latest
+
+- name: Install misc software
+  yum:
+    name:
+      - tig
+      - tree
+
+- name: Install more misc software
+  pip:
+    name:
+      - ranger-fm
+    extra_args: --user
+    executable: pip3
