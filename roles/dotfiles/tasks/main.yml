@@ -24,7 +24,7 @@
     - {src: ~/.config/dotfiles/ansible.cfg, dest: ~/.ansible.cfg}
     - {src: ~/.config/dotfiles/pylintrc, dest: ~/.pylintrc}
     - {src: ~/.config/dotfiles/Xmodmap, dest: ~/.Xmodmap}
-    - {src: ~/.config/dotfiles/flake8, dest: ~/.flake8}
+    - {src: ~/.config/dotfiles/flake8, dest: ~/.config/flake8}
     - {src: ~/.config/dotfiles/yamllint, dest: ~/.yamllint}
 
 - name: Download LS_COLORS
