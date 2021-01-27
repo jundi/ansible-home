@@ -19,6 +19,7 @@
     state: latest
 
 - name: Enable clipboard syncronization over SSH
+  become: true
   yum:
     name:
       - xorg-x11-xauth
