@@ -27,10 +27,13 @@
     state: latest
 
 - name: Install misc software
+  become: true
   yum:
     name:
       - tig
       - tree
+      - python3-pip
+      - wget
 
 - name: Install more misc software
   pip:
