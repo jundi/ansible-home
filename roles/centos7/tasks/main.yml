@@ -1,27 +1,20 @@
 ---
-- name: Install epel-release repository
+- name: Install epel-release repo
   become: true
   yum:
     name: epel-release
-    state: latest
 
-- name: Install bash completion
-  become: true
-  yum:
-    name: bash-completion-extras
-
-- name: Install git
-  become: true
-  yum:
-    name: git
-    state: latest
-
-- name: Install Neovim
+- name: Install dev tools
   become: true
   yum:
     name:
+      - bash-completion-extras
+      - git
       - neovim
       - python36-neovim
+      - python36-virtualenv
+      - screen
+      - htop
     state: latest
 
 - name: Install Python2 setuptools (required for pip3)

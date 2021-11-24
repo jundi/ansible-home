@@ -1,22 +1,22 @@
 ---
-- name: Install git
+- name: Install dev tools
   become: true
-  dnf:
-    name: git
-    state: latest
-
-- name: Install epel-release repository
-  become: true
-  dnf:
-    name: epel-release
-    state: latest
-
-- name: Install Neovim
-  become: true
-  dnf:
+  yum:
     name:
+      - epel-release
+      - git
+      - tig
+      - tree
+      - python3-pip
+      - wget
       - neovim
-    state: latest
+
+- name: Install dev tools from PyPi
+  pip:
+    name:
+      - ranger-fm
+    extra_args: --user
+    executable: pip3
 
 - name: Enable clipboard syncronization over SSH
   become: true
@@ -25,19 +25,3 @@
       - xorg-x11-xauth
       - xsel
     state: latest
-
-- name: Install misc software
-  become: true
-  yum:
-    name:
-      - tig
-      - tree
-      - python3-pip
-      - wget
-
-- name: Install more misc software
-  pip:
-    name:
-      - ranger-fm
-    extra_args: --user
-    executable: pip3
