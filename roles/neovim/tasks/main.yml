@@ -32,7 +32,7 @@
     dest: ~/.config/nvim/autoload/plug.vim
 
 - name: Install plugins
-  command: nvim +PlugUpdate +UpdateRemotePlugins +qall
+  command: nvim -u NORC '+source ~/.config/nvim/init.vim' +PlugUpdate +UpdateRemotePlugins +qall
 
 - name: Add vimpager executables
   file:
