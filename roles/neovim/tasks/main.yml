@@ -62,7 +62,7 @@
       - rstcheck
       - pylint-venv
       - flake8
-      - flake8-docstrings
+      - pydocstyle
       - yamllint
       - yapf
     extra_args: --user
